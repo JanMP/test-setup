@@ -1,2 +1,2 @@
-# viewmodel-react-starter
-Starter project to test ViewModel for React.
+# test-setup
+Setup for testing stuff I work on locally. Using ViewModel for React and coffee-script.
