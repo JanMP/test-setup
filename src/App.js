@@ -1,19 +1,19 @@
-import { SetupTest } from "./test.coffee"
+import { GeometryDraw, TestSetup3 } from "./GeometryDraw.coffee"
 
 App({
-  inputString : "",
-  reverse(){
-    return this.inputString().split("").reverse().join("")
-  },
+  testSetup : {},
+  views : [],
   created(){
-    let test = new SetupTest("Moin, Erde!")
-    test.logTestString()
+    let test = new TestSetup3()
+    this.testSetup(test)
+    this.views(test.getViews())
+  },
+  autorun(){
+    console.log("autorun", this.views())
   },
   render(){
     <div>
-      <h1>test-setup</h1>
-      <input b="value : inputString"/>
-      <p b="text : reverse"></p>
+      <Drawing b="repeat : views, key : key"/>
     </div>
   }
 });

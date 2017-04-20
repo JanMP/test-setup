@@ -43,8 +43,11 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
+    "imports-loader": "^0.7.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "snapsvg": "^0.5.1",
+    "snapsvg-cjs": "0.0.4",
     "viewmodel-react": "^0.7.1"
   },
   "jest": {
