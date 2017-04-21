@@ -107,11 +107,11 @@ class GeometryDraw
         .add(endPoint).multiply(.5)
         .subtract(fulcrum)
         .toLength if largeArcFlag then -1 else 1
-    offsetAdjust = switch
+    adjust = switch
       when innerAngle < 60 then .7
       when innerAngle < 120 then .5 + (120-innerAngle)/60*.2
       else .5
-    angleLabelAnchor =fulcrum.add labelOffsetVector.multiply(radius*offsetAdjust)
+    angleLabelAnchor =fulcrum.add labelOffsetVector.multiply(radius*adjust)
     pointLabelAnchor= fulcrum.subtract labelOffsetVector.multiply(radius*.5)
     @paper.path "M#{(arcEndPoint p1).x} #{(arcEndPoint p1).y}\
       A #{radius}, #{radius} 0 #{largeArcFlag},1 \
@@ -181,7 +181,7 @@ class TestSetup3
       renderDrawing : (s) ->
         center = new Point 100, 100
         lines = [1..e].map (i) ->
-          startPoint : (new Point 100, 180-Math.random()*40).rotate -i*360/e, center
+          startPoint : (new Point 100, 180).rotate -i*360/e, center
           lineLabelText : " abcdefghijklmnopqrstuvwxyz".split("")[i]
           pointLabelText : " ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")[i]
         s.labledPolygon lines
